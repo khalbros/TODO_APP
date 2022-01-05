@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "lato";
+}
+
+body {
+  background: linear-gradient(to top right, rgb(5, 5, 77), rgb(65, 5, 65))
+    no-repeat center center fixed;
+  background-size: cover;
+  padding: 20px 10px;
+  color: azure;
+}
+.close {
+  display: none;
+}
+
+.todos {
+  width: 100%;
+  height: 100%;
+  /* max-height: 100vh; */
+  max-width: 760px;
+  margin: auto;
+}
+.todo {
+  display: flex;
+  position: relative;
+  width: 100%;
+  background: rgb(23, 6, 39);
+  padding: 10px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: tahoma;
+  font-size: 18px;
+  font-weight: 700px;
+  margin: 10px;
+}
+.todo:hover {
+  opacity: 0.7;
+  box-shadow: 0px 2px 15px 0 rgb(0, 0, 0);
+  transition: ease-in-out 300ms;
+}
+.todo .check {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: linear-gradient(to top right, rgb(3, 28, 98), rgb(209, 8, 149));
+  margin-right: 15px;
+}
+.todo .delete {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  width: 25px;
+  height: 25px;
+  border-radius: 999px;
+  background-color: rgb(104, 21, 21);
+  margin-right: 15px;
+  padding-bottom: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  align-self: autoS;
+}
+.todo .delete:hover {
+  background-color: red;
+  box-shadow: 0px 2px 15px 0 rgb(0, 0, 0);
+}
+
+.todo.complete .text {
+  text-decoration: line-through;
+  color: rgb(111, 111, 112);
+}
+.todo.complete .check {
+  background: rgb(63, 78, 78);
+}
+.heading {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+.heading div {
+  width: 300px;
+  max-width: 200px;
+  height: 3px;
+  background: linear-gradient(to top right, rgb(3, 28, 98), rgb(209, 8, 149));
+  border-radius: 20px;
+  margin: 20px;
+}
+.heading h3,
+h4 {
+  font-family: "lato", tahoma;
+  font-weight: 700;
+  font-stretch: expanded;
+}
+h4 {
+  font-variant: small-caps;
+}
+h3 {
+  text-transform: capitalize;
+}
+
+.model-btn {
+  position: fixed;
+  display: flex;
+  bottom: 20px;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to bottom right,
+    rgb(0, 255, 21),
+    rgb(0, 38, 255)
+  );
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 15px 0px black;
+  font-weight: 800;
+  font-size: 20px;
+  cursor: pointer;
+}
+.model-btn:hover {
+  opacity: 0.5;
+  transition: ease-out 400ms;
+}
+
+.popup-model {
+  display: flex;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 2, 0.719);
+  top: 0;
+  left: 0;
+  transition: width 2s, height 4s;
+}
+.popup-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* height: 50%; */
+  max-width: 600px;
+  margin: auto;
+  background-color: rgb(163, 153, 179);
+  border-radius: 25px;
+  align-content: center;
+  padding: 20px 20px 25px 20px;
+}
+.popup-body .heading {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.close-btn {
+  display: flex;
+
+  background-color: chocolate;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  justify-content: center;
+  align-content: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+.close-btn:hover {
+  background-color: red;
+  box-shadow: 0px 2px 15px 0px rgb(0, 0, 0);
+}
+
+.add-btn {
+  margin: 12px;
+  outline: none;
+  padding: 10px;
+  background-color: rgb(5, 109, 14);
+  border: none;
+  border-radius: 6px;
+  color: aliceblue;
+  cursor: pointer;
+}
+.add-btn:hover {
+  box-shadow: 0px 2px 10px 0px rgb(0, 0, 0);
+  opacity: 0.8;
+}
+.text-input {
+  outline: none;
+  border: none;
+  padding: 10px 15px;
+  background-color: rgba(212, 217, 221, 0.849);
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+}
