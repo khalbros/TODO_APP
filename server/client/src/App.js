@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from "react"
-import axios from "axios"
+import Axios from "axios"
+
+const axios = Axios.create({
+  baseURL: `https://react-todo-tracker.herokuapp.com`,
+})
+
 function App() {
   const [todos, setTodos] = useState([])
   const [newTodo, setNewTodo] = useState("")
@@ -13,7 +18,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .post("http://localhost:5000/todo/add", {
+      .post("/add", {
         title: newTodo,
       })
       .then((res) => {
@@ -25,15 +30,15 @@ function App() {
     setNewTodo("")
   }
   const handleDelete = (id) => {
-    axios.delete("http://localhost:5000/todo/delete/" + id).then((res) => {
+    axios.delete("/delete/" + id).then((res) => {
       alert("Deleted")
     })
   }
   const handleMark = (id) => {
-    axios.put("http://localhost:5000/todo/mark/" + id).then((res) => {})
+    axios.put("/mark/" + id).then((res) => {})
   }
   useEffect(() => {
-    axios.get("http://localhost:5000/todo/todos").then((res) => {
+    axios.get("/todos").then((res) => {
       setTodos(res.data)
     })
   }, [todos])
