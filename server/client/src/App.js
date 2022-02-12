@@ -22,8 +22,9 @@ function App() {
         title: newTodo,
       })
       .then((res) => {
-        console.log(newTodo)
+      
         alert("Added Successfully")
+      getData()
       })
       .catch(() => alert("Something Wrong"))
     setPopup(!popup)
@@ -32,17 +33,22 @@ function App() {
   const handleDelete = (id) => {
     axios.delete("/delete/" + id).then((res) => {
       alert("Deleted")
+      getData()
     })
   }
   const handleMark = (id) => {
     axios.put("/mark/" + id).then((res) => {})
+    getData()
   }
   useEffect(() => {
-    axios.get("/todos").then((res) => {
-      setTodos(res.data)
-    })
-  }, [todos])
+    getData()
+  }, [])
 
+  function getData(){
+   axios.get("/todos").then((res) => {
+      setTodos(res.data)
+    }) 
+  }
   return (
     <div className="App">
       <div className="todos">
